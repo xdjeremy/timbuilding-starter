@@ -36,8 +36,8 @@ const { title, description }: Props = Astro.props;
           // OG title should never be the same as the page title
           title: "₱0 down, ₱3,500 per month website",
           type: "website",
-          image: "https://timbuilding.com/og-image.png",
-          url: "https://timbuilding.com",
+          image: `${import.meta.env.SITE}/og-image.png`,
+          url: `${import.meta.env.SITE}`,
         },
         optional: {
           description: "We build websites for small businesses",
@@ -47,9 +47,19 @@ const { title, description }: Props = Astro.props;
         card: "summary_large_image",
         title: "₱0 down, ₱3,500 per month website",
         description: "We build websites for small businesses",
-        image: "https://timbuilding.com/og-image.png",
+        image: `${import.meta.env.SITE}/og-image.png`,
+      }}
+      extend={{
+        link: [
+          {
+            rel: "sitemap",
+            href: "/sitemap-index.xml",
+          },
+        ],
       }}
     />
   </head>
-  <body> </body>
+  <body>
+    <slot />
+  </body>
 </html>
