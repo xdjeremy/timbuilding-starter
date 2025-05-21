@@ -9,6 +9,9 @@
   --background-color: #ffffff;
   --text-color: #000000;
   --border-color: #cccccc;
+
+  /* For button, cards */
+  --radius: 0.625rem;
 }
 
 /* Dark mode */
@@ -29,4 +32,8 @@
   --background: var(--background-color);
   --color-border: var(--text-color);
   --color-text: var(--border-color);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
