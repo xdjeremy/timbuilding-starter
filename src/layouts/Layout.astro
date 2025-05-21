@@ -1,5 +1,7 @@
 ---
+import { AstroFont } from "astro-font";
 import { SEO } from "astro-seo";
+import { Schema } from "astro-seo-schema";
 
 interface Props {
   title: string;
@@ -12,20 +14,6 @@ const { title, description }: Props = Astro.props;
 <!doctype html>
 <html lang="en" class="dark">
   <head>
-    <script>
-      // Dark mode toggle
-      document.documentElement.classList.toggle(
-        "dark",
-        localStorage.theme === "dark" ||
-          (!("theme" in localStorage) &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches),
-      );
-    </script>
-    <script>
-      // Intersection observer for animations
-      import { Observer } from "tailwindcss-intersect";
-      Observer.start();
-    </script>
     <SEO
       title={title}
       titleTemplate="%s | TimBuilding Web Designs"
@@ -62,6 +50,59 @@ const { title, description }: Props = Astro.props;
         ],
       }}
     />
+    <Schema
+      item={{
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        name: "TimBuilding Web Designs",
+        description: "${description}",
+        priceRange: "₱3,500/month",
+        image: "${image}",
+        address: {
+          "@type": "PostalAddress",
+          addressRegion: "Philippines",
+        },
+        url: "${canonicalURL}",
+        telephone: "+63",
+        openingHours: "Mo-Fr 09:00-17:00",
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          price: "3500",
+          priceCurrency: "PHP",
+          minPrice: "3500",
+          maxPrice: "3500",
+        },
+      }}
+    />
+    <AstroFont
+      config={[
+        {
+          src: [],
+          name: "Inter",
+          // Google Fonts URL
+          googleFontsURL:
+            "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+          preload: true,
+          display: "swap",
+          selector: "body",
+          fallback: "sans-serif",
+        },
+      ]}
+    />
+    <script>
+      // Dark mode toggle
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches),
+      );
+    </script>
+    <script>
+      // Intersection observer for animations
+      import { Observer } from "tailwindcss-intersect";
+      Observer.start();
+    </script>
   </head>
   <body>
     <slot />
