@@ -1,7 +1,6 @@
 ---
-import { AstroFont } from "astro-font";
-import { SEO } from "astro-seo";
-import { Schema } from "astro-seo-schema";
+import Themes from "astro-themes";
+import "../styles/global.css";
 import Head from "./Head.astro";
 
 interface Props {
@@ -19,6 +18,7 @@ const { title, description }: Props = Astro.props;
 <!doctype html>
 <html lang="en" class="dark">
   <Head title={title} description={description} />
+  <Themes />
   <body>
     <slot />
   </body>
