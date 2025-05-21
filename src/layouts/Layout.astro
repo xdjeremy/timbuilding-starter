@@ -1,3 +1,14 @@
+---
+import { SEO } from "astro-seo";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description }: Props = Astro.props;
+---
+
 <!doctype html>
 <html lang="en" class="dark">
   <head>
@@ -15,5 +26,30 @@
       import { Observer } from "tailwindcss-intersect";
       Observer.start();
     </script>
+    <SEO
+      title={title}
+      titleTemplate="%s | TimBuilding Web Designs"
+      description={description}
+      charset="UTF-8"
+      openGraph={{
+        basic: {
+          // OG title should never be the same as the page title
+          title: "₱0 down, ₱3,500 per month website",
+          type: "website",
+          image: "https://timbuilding.com/og-image.png",
+          url: "https://timbuilding.com",
+        },
+        optional: {
+          description: "We build websites for small businesses",
+        },
+      }}
+      twitter={{
+        card: "summary_large_image",
+        title: "₱0 down, ₱3,500 per month website",
+        description: "We build websites for small businesses",
+        image: "https://timbuilding.com/og-image.png",
+      }}
+    />
   </head>
+  <body> </body>
 </html>
