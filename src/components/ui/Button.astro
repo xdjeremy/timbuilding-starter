@@ -4,20 +4,19 @@ import { cn } from "../../lib/utils";
 
 const buttonVariants = cva(
   // Base styles applied to all variants
-  "rounded-lg font-normal cursor-pointer relative overflow-hidden inline-flex items-center justify-center",
+  "rounded-lg inline-flex items-center justify-center text-center font-medium cursor-pointer",
   {
     variants: {
       variant: {
-        primary: "text-white before:bg-primary after:bg-black",
+        primary:
+          "bg-primary dark:bg-white text-white dark:text-black dark:hover:text-white hover:bg-black",
         secondary:
-          "text-white before:bg-secondary after:bg-black dark:before:bg-white dark:after:bg-black dark:text-black dark:hover:text-white",
-        outline:
-          "before:bg-transparent before:border before:border-border after:bg-brand-violet group",
-        ghost:
-          "text-text hover:text-brand-violet transition-colors duration-200",
+          "bg-secondary dark:bg-white text-white hover:bg-black dark:text-black dark:hover:text-white",
+        outline: "border-border border text-text hover:bg-border",
+        ghost: "",
       },
       size: {
-        default: "px-6 py-3",
+        default: "py-3 px-7",
         small: "px-5 py-2",
         icon: "w-10 h-10",
       },
@@ -50,14 +49,14 @@ const getClasses = () => {
   const baseClasses = buttonVariants({ variant, size });
 
   // Apply transition effects for all variants except ghost
-  if (variant !== "ghost") {
-    return cn(
-      baseClasses,
-      "before:absolute before:inset-0 before:w-full before:h-full before:z-[1] before:transition-all before:duration-200",
-      "after:absolute after:inset-0 after:w-full after:h-full after:z-[2] after:translate-x-[-100%] after:transition-transform after:duration-300 hover:after:translate-x-0",
-      className,
-    );
-  }
+  // if (variant !== "ghost") {
+  //   return cn(
+  //     baseClasses,
+  //     "before:absolute before:inset-0 before:w-full before:h-full before:z-[1] before:transition-all before:duration-200",
+  //     "after:absolute after:inset-0 after:w-full after:h-full after:z-[2] after:translate-x-[-100%] after:transition-transform after:duration-300 hover:after:translate-x-0",
+  //     className,
+  //   );
+  // }
 
   // Simple styles for ghost variant without transition effects
   return cn(baseClasses, className);

@@ -30,10 +30,14 @@
 
   /* DO NOT TOUCH */
   --background: var(--background-color);
-  --color-border: var(--text-color);
-  --color-text: var(--border-color);
+  --color-border: var(--border-color);
+  --color-text: var(--text-color);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+}
+
+.container {
+  max-width: 80rem;
 }

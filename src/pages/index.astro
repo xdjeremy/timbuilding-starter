@@ -6,30 +6,13 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Homer">
   <h1 class="text-2xl font-bold">Home</h1>
   <p>heading</p>
-  <div>
-    <Button
-      onclick="document.dispatchEvent(new CustomEvent('set-theme', { detail: 'light' }))"
-    >
-      Light
-    </Button>
-    <Button
-      variant="secondary"
-      onclick="document.dispatchEvent(new CustomEvent('set-theme', { detail: 'dark' }))"
-    >
-      Dark
-    </Button>
-    <button
-      onclick="document.dispatchEvent(new CustomEvent('set-theme', { detail: null }))"
-    >
-      Clear theme
-    </button>
-  </div>
 
-  <button class="bg-primary dark:bg-secondary"> hello </button>
-  <Button>ewew</Button>
-  <p class="py-96">asda</p>
-  <p class="py-96">asda</p>
-  <p class="py-96">asda</p>
-  <p class="py-96">asda</p>
-  <p class="py-96">asda</p>
+  <div class="container flex flex-col items-center py-96 gap-3">
+    <Button>ewew</Button>
+    <Button variant="primary" size="small">ewew</Button>
+    <Button variant="primary">Primary</Button>
+    <Button variant="outline">Secondary</Button>
+    <Button variant="ghost">Secondary</Button>
+    <Button variant="primary" size="icon">ewew</Button>
+  </div>
 </Layout>
