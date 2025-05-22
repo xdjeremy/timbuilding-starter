@@ -2,6 +2,7 @@
 import Themes from "astro-themes";
 import "../styles/global.css";
 import Head from "./Head.astro";
+import Navigation from "../components/ui/Navigation.astro";
 
 interface Props {
   title: string;
@@ -20,6 +21,7 @@ const { title, description }: Props = Astro.props;
   <Head title={title} description={description} />
   <Themes />
   <body>
+    <Navigation />
     <slot />
   </body>
 </html>

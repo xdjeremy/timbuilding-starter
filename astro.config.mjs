@@ -1,6 +1,7 @@
 // @ts-check
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
+import icon from "astro-icon";
 import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
 
@@ -10,5 +11,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  integrations: [sitemap(), robotsTxt()],
+  // robotsTxt must be the last item in the array
+  integrations: [icon(), sitemap(), robotsTxt()],
 });

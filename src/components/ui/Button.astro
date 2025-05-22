@@ -34,9 +34,17 @@ export type ButtonVariantProps = VariantProps<typeof buttonVariants>;
 interface Props extends ButtonVariantProps {
   class?: string;
   onclick?: string;
+  id?: string;
 }
 
-const { variant, size, class: className = "", onclick, ...rest } = Astro.props;
+const {
+  variant,
+  size,
+  class: className = "",
+  onclick,
+  id,
+  ...rest
+} = Astro.props;
 
 const getClasses = () => {
   const baseClasses = buttonVariants({ variant, size });
@@ -58,7 +66,7 @@ const getClasses = () => {
 const classes = getClasses();
 ---
 
-<button class={classes} onclick={onclick} {...rest}>
+<button class={classes} onclick={onclick} id={id} {...rest}>
   <span
     class={cn(
       variant === "outline" &&
