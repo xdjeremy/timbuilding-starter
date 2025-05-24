@@ -46,6 +46,12 @@ const { title, description }: Props = Astro.props;
           href: "/sitemap-index.xml",
         },
       ],
+      meta: [
+        {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1.0",
+        },
+      ],
     }}
   />
   <Schema
@@ -83,6 +89,17 @@ const { title, description }: Props = Astro.props;
         preload: true,
         display: "swap",
         selector: "body",
+        fallback: "sans-serif",
+      },
+      {
+        src: [],
+        name: "IBM Plex Sans",
+        // Google Fonts URL
+        googleFontsURL:
+          "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap",
+        preload: true,
+        display: "swap",
+        selector: ".font-ibm",
         fallback: "sans-serif",
       },
     ]}

@@ -5,6 +5,8 @@ import icon from "astro-icon";
 import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
 
+import alpinejs from "@astrojs/alpinejs";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://timbuilding.com",
@@ -12,5 +14,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   // robotsTxt must be the last item in the array
-  integrations: [icon(), sitemap(), robotsTxt()],
+  integrations: [icon(), sitemap(), alpinejs(), robotsTxt()],
 });
